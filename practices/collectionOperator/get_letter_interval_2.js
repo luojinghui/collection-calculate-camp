@@ -1,34 +1,41 @@
 'use strict';
-function alone_letter(letter,num_1,num_2){
-    var NUM = 96;
-    var NUM_1 = 122;
-    var get_num = num_1 + NUM;
-    var get_num2 = num_2 + NUM;
+function judge(letter,num) {
+    var NUM = 26;
+    var NUM_1 = 96;
 
-    for(var i=get_num; i<=get_num2; i++) {
-        if(i > NUM && i <= NUM_1) {
-            letter.push(String.fromCharCode(i));
+    if(num > NUM) {
+        var num_unit = parseInt( num / NUM);
+        var num_multiple = num_unit * NUM;
+        var num_decade = num - num_multiple;
 
+        if( num % NUM === 0) {
+            letter.push(String.fromCharCode((num_unit-1)+NUM_1) +
+                String.fromCharCode(NUM+NUM_1));
+            }else {
+                letter.push(String.fromCharCode(num_unit+NUM_1) +
+                String.fromCharCode(num_decade+NUM_1));
+        }
+    }else {
+        if(num%NUM === 0) {
+        letter.push(String.fromCharCode(num+NUM_1));
+            }else {
+                var num_1 = num % NUM;
+                letter.push(String.fromCharCode(num_1+NUM_1))
         }
     }
 }
-
-function two_letter() {
-
-}
-
 function get_letter_interval_2(number_a, number_b) {
     //在这里写入代码
     var letter = [];
-    var NUM = 96;
-    var change_num1 = number_a + NUM;
-    var change_num2 = number_b + NUM;
-    if(number_a <= 26) {
-            alone_letter(letter,number_a,number_b);
-        }else {
-            
+    if(number_a <= number_b) {
+        for(var i=number_a; i<=number_b; i++) {
+            judge(letter,i);
         }
-
+    }else {
+        for(var j=number_a; j>=number_b; j--) {
+            judge(letter,j);
+        }
+    }
     return letter;
 }
 
