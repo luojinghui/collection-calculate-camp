@@ -2,7 +2,7 @@
 
 function collect_max_number(collection) {
     var result;
-    if(collection.length === 0) {
+    if(collection.length === 1) {
         result = collection[0];
     }else {
         for (var i = 0; i < collection.length; i++) {
