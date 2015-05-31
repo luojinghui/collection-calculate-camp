@@ -7,19 +7,20 @@ function choose_no_repeat_number(collection) {
 //    var result = _.uniq(collection);
 
 //    return result;
-    return collection.remove_same();
+    return remove_same(collection);
 
 
 }
 
-Array.prototype.remove_same = function () {
-    var temp = new Array();
-        this.sort();
-        for(var i = 0; i < this.length; i++) {
-            if( this[i] == this[i+1]) {
+ var remove_same = function (collection) {
+        collection.sort();
+        var temp = [];
+
+        for(var i = 0; i < collection.length; i++) {
+            if( collection[i] == collection[i+1]) {
             continue;
         }
-            temp[temp.length]=this[i];
+            temp[temp.length]=collection[i];
       }
       return temp;
 
