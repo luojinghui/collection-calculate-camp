@@ -12,4 +12,13 @@ var map_to_three_multiples = function(collections){
     return result;
 };
 
+
+
+function map(collections,hander) {
+    var result = [];
+    for (var i = 0; i < collection.length; i++) {
+            result
+    }
+}
+
 module.exports = map_to_three_multiples;
