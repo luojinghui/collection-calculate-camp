@@ -1,17 +1,20 @@
 'use strict';
 
 function get_integer_interval(number_a, number_b) {
-  //在这里写入代码
+      var _ = require('../lodash/mylodash.js');
     var a = [];
 
     if(number_a <= number_b) {
-        for(var i=number_a; i<=number_b; i++) {
+//        for(var i=number_a; i<=number_b; i++) {
+//            a.push(i);
+        _.foreach(collection_a,function(n,i) {
             a.push(i);
+        });
         }
     } else {
-        for(var j=number_a; j>=number_b; j--) {
-        a.push(j);
-        }
+        _.foreach(collection_b,function(n,i) {
+            a.push(j);
+        });
     }
     return a;
 }
