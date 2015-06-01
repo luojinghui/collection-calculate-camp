@@ -7,13 +7,20 @@ function collect_all_even(collection) {
 //    });
 //    return even_number;
 
-    var even_number = [];
-    for(var i=0; i<collection.length; i++) {
-        if(collection[i] % 2 === 0 ) {
-            even_number.push(collection[i]);
-        }
-    }
-    return even_number;
+    // var even_number = [];
+    // for(var i=0; i<collection.length; i++) {
+    //     if(collection[i] % 2 === 0 ) {
+    //         even_number.push(collection[i]);
+    //     }
+    // }
+    // return even_number;
+
+    var _ = require('../lodash/mylodash.js');
+    return _.filter(collection,function(n) {
+        if(n % 2 === 0) {
+            return n;
+        };
+    })
 }
 
 module.exports = collect_all_even;
