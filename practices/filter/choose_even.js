@@ -8,13 +8,10 @@ function choose_even(collection) {
 //    });
 //    return evens;
 
-    var result = [];
-    for(var i=0; i<collection.length; i++) {
-        if(collection[i] % 2 === 0) {
-            result.push(collection[i]);
-        }
-    }
-    return result;
+    var _ = require('../lodash/mylodash.js');
+    return _.filter(collection,function(n) {
+        return n % 2 === 0;
+    });
 }
 
 module.exports = choose_even;
