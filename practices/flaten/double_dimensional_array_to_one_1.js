@@ -6,16 +6,17 @@ function double_to_one(collection) {
 //  var _ = require('../lodash/');
 
 //  return _.flatten(collection);
-
+    var _ = require('../lodash/mylodash.js');
     var result = [];
-    for (var i = 0; i < collection.length; i++) {
-        if(collection[i].length == undefined) {
-            result.push(collection[i]);
+
+    _.foreach(collection,function(n) {
+        if(n.length == undefined) {
+            result.push(n);
         }
-        for (var j = 0; j < collection[i].length; j++) {
-            result.push(collection[i][j]);
+        for (var j = 0; j < n.length; j++) {
+            result.push(n[j]);
             }
-        }
+        });
     return result;
 }
 
