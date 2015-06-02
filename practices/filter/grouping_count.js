@@ -12,11 +12,22 @@ function grouping_count(collection) {
     var result = {};
 
     _.foreach(collection,function(n,i) {
-        result[collection[i]] = result[collection[i]] || 0;
-        result[collection[i]] ++;
+        result[n] = result[n] || 0;
+        result[n] ++;
 
     });
     return result;
 }
 
 module.exports = grouping_count;
+
+/*
+for(var i = 0;i < collection.length;i++) {
+         if(!! number[collection[i]]) {
+             number[collection[i]] ++;
+         }else {
+             number[collection[i]] = 0;
+             number[collection[i]] ++;
+         }
+     }
+*/
