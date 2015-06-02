@@ -2,9 +2,15 @@
 function _() {}
 
 _.foreach = function(collection,fun) {
-   for (var i = 0; i < collection.length; i++) {
+   for (var i = 0; i < collection.length; i ++) {
        fun(collection[i],i);
    }
+}
+
+_.foreach_re = function(collection,fun) {
+    for(var j = number_a; j >= number_b; j --) {
+        fun(collection[i],i);
+    }
 }
 /*
 map方法是映射数组，不会改变数组的长度，只会改变数组中对应元素。
@@ -40,12 +46,12 @@ reduce方法是通过一个function的到数组中的某一个元素。
     var result = array[0];
 
     _.foreach(array,function(n,i) {
-    if(i === 0){
-        result = n;
-    } else {
-        result = fun(result,n);
-    }
-    });
+    	if(i === 0){
+        	result = n;
+    	} else {
+        	result = fun(result,n);
+    	}
+    	});
     return result;
 }
 
