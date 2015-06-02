@@ -26,12 +26,12 @@ function judge(letter,num) {
 }
 
 var number_map_to_word_over_26 = function(collection){
-    var _ = require('../lodash/');
+    var _ = require('../lodash/mylodash.js');
     var letter = [];
 
-    for(var i=0; i<collection.length; i++) {
-        judge(letter,collection[i]);
-    }
+    _.foreach(collection,function(n) {
+        judge(letter,n);
+    });
     return letter;
 };
 

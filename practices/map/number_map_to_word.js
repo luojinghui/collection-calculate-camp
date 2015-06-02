@@ -1,18 +1,12 @@
 'use strict';
-function letter(n) {
-    return String.fromCharCode(n+96);
-}
+
 var number_map_to_word = function(collection){
-    //var _ = require('../lodash/');
-    //var result = _.map(collection,letter)
-
-    //return result;
-
+    var _ = require('../lodash/mylodash.js');
     var result = [];
-    for (var i = 0; i < collection.length; i++) {
-        result[result.length] = letter(collection[i]);
-    }
-    return result;
+
+    return _.map(collection,function(n) {
+        return String.fromCharCode(n+96);
+    });
 };
 
 module.exports = number_map_to_word;

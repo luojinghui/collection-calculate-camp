@@ -1,7 +1,8 @@
 'use strict';
 var map_to_four_multiples_add_one = function(collection){
-    var map = require('../lodash/map.js');
-    return map(collection,function(n) {
+    var _ = require('../lodash/mylodash.js');
+
+    return _.map(collection,function(n) {
         return n * 4 + 1;
     });
 }

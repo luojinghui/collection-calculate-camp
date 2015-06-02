@@ -3,22 +3,11 @@ function four(n) {
     return n * 3;
 }
 var map_to_three_multiples = function(collections){
-//    var _ = require('../lodash/');
-//    return _.map(collections,four);
-    var result = [];
-    for (var i=0; i<collections.length; i++) {
-        result[result.length] = collections[i] * 3;
-    }
-    return result;
-};
+    var _ = require('../lodash/mylodash.js');
 
-
-
-function map(collections,hander) {
-    var result = [];
-    for (var i = 0; i < collection.length; i++) {
-            result
-    }
+    return _.map(collections,function(n) {
+        return n * 3 ;
+    });
 }
 
 module.exports = map_to_three_multiples;
