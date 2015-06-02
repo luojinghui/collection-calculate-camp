@@ -8,13 +8,14 @@ function grouping_count(collection) {
 //        return this.floor(n);
 //    },Math);
 //    return result;
-
+    var _ = require('../lodash/mylodash.js');
     var result = {};
-    for (var i = 0; i < collection.length; i++) {
+
+    _.foreach(collection,function(n,i) {
         result[collection[i]] = result[collection[i]] || 0;
         result[collection[i]] ++;
 
-    }
+    });
     return result;
 }
 
