@@ -32,7 +32,7 @@ _.filter = function(collection,fun) {
     var result = [];
 
     _.foreach(collection,function(n,i) {
-        if(fun(n)) {
+        if(fun(n,i)) {
             result.push(n);
         }
     });
