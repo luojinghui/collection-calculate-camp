@@ -1,4 +1,5 @@
 'use strict';
+var _ = require('../../lodash/mylodash.js');
 
 function hybrid_operation_to_uneven(collection) {
     // var sum = [] ;
@@ -9,13 +10,14 @@ function hybrid_operation_to_uneven(collection) {
     // }
     // return sum;
 
-    var _ = require('../../lodash/mylodash.js');
-
-    return _.filter_2(collection,function(n) {
-        if(n % 2 != 0) {
-            return n * 3 + 2;
-        }
+    var array_odd = _.filter(collection,function(n) {
+        return (n % 2 != 0);
     });
+
+    var array = _.map(array_odd,function(n) {
+        return (n * 3 + 2);
+    });
+    return array;
 }
 
 module.exports = hybrid_operation_to_uneven;
