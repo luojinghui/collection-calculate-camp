@@ -3,13 +3,15 @@
 function compare_collections(collection_a, collection_b) {
     //在这里写入代码
     var result;
-    for (var i = 0; i < collection_a.length; i++) {
+    var _ = require('../lodash/mylodash.js');
+
+    _.foreach(collection_a,function (n,i) {
         for(var j = 0; j < collection_b.length; j++) {
-            if(collection_a[i] === collection_b[j]) {
+            if(n === collection_b[j]) {
                 return true;
             }
         }
-    }
+    });
 }
 
 module.exports = compare_collections;

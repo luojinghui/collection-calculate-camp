@@ -31,7 +31,7 @@ filter方法是可以改变数组，通过某种function方法返回true和false
 _.filter = function(collection,fun) {
     var result = [];
 
-    _.foreach(collection,function(n) {
+    _.foreach(collection,function(n,i) {
         if(fun(n)) {
             result.push(n);
         }
