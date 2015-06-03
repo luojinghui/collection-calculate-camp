@@ -39,6 +39,17 @@ _.filter = function(collection,fun) {
     return result;
 }
 
+_.filter_2 = function(collection,fun) {
+    var result = [];
+
+    _.foreach(collection,function(n,i) {
+        if(fun(n,i)) {
+            result.push(fun(n,i));
+        }
+    });
+    return result;
+}
+
 /*
 reduce方法是通过一个function的到数组中的某一个元素。
 */
