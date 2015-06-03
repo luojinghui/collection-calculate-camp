@@ -1,26 +1,27 @@
 'use strict';
 function rank_by_two_large_one_small(collection){
-var array = [];
-for (var i = 0; i < collection.length; i++) {
-    for(var j = i; j < collection.length; j ++) {
-        if(collection[i] > collection[j]) {
+var array = collection;
+
+for (var i = 0; i < array.length; i++) {
+    for(var j = i; j < array.length; j ++) {
+        if(array[i] > array[j]) {
             var temp = 0;
 
-            temp = collection[i];
-            collection[i] = collection[j];
-            collection[j] = temp;
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
         }
     }
 }
-    for (var a = 0; a < collection.length; a +=3) {
+    for (var a = 0; a < array.length; a +=3) {
         var temp_letter = 0;
-        if(a < collection.length - 2) {
-        temp_letter = collection[a];
-        collection[a] = collection[a+1];
-        collection[a+1] = collection[a+2];
-        collection[a+2] = temp_letter;
+        if(a < array.length - 2) {
+        temp_letter = array[a];
+        array[a] = array[a+1];
+        array[a+1] = array[a+2];
+        array[a+2] = temp_letter;
         }
     }
-    return collection;
+    return array;
 }
 module.exports = rank_by_two_large_one_small;

@@ -8,13 +8,14 @@ for (var i = 0; i < collection.length; i++) {
 }
     var array_alone = [];
     var ex = 0;
+
     for (var i = 0; i < array.length; i++) {
         if(array[ex] === array[i]) {
             ex = i;
             array_alone.push(array[ex]);
         }
     }
-
+console.log(array_alone);
     for (var j = 0; j < array.length; j++) {
         for(var a = 0; a <array_alone.length; a++) {
             if (array[j] === array_alone[a]) {

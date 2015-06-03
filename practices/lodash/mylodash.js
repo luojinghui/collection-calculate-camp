@@ -55,4 +55,14 @@ reduce方法是通过一个function的到数组中的某一个元素。
     return result;
 }
 
+_.is_exist = function(collection,element) {
+    var index = false;
+
+    _.foreach(collection,function(n) {
+        if(n === element) {
+            index = true;
+        }
+    });
+    return index;
+}
 module.exports = _;
