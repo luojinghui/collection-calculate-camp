@@ -10,13 +10,11 @@ function hybrid_operation_to_uneven(collection) {
     // return sum;
 
     var _ = require('../../lodash/mylodash.js');
-    var array = [];
 
-    array = _.filter(collection,function(n) {
-        return n % 2 != 0;
-    });
-    return _.map(array,function(n) {
-        return n * 3 + 2;
+    return _.filter_2(collection,function(n) {
+        if(n % 2 != 0) {
+            return n * 3 + 2;
+        }
     });
 }
 
