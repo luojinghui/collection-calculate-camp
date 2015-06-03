@@ -2,15 +2,18 @@
 
 function compute_chain_median(collection) {
     //在这里写入代码
+    var _ = require('../lodash/mylodash.js');
     var array_2 = [];
     var array = [];
-    array_2 =  collection.split('->');
-    var num ;
-    for (var i = 0; i < array_2.length; i++) {
-        array.push(Number(array_2[i]));
-    }
+
+    array_2 = collection.split('->');
+    _.foreach(array_2,function(n) {
+        array.push(Number(n));
+    });
+
     sort(array);
     var ave = (array[array.length / 2 - 1 ] + array[array.length / 2]) / 2;
+
     return ave;
 
 }

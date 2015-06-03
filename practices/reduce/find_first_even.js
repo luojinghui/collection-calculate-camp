@@ -7,11 +7,10 @@ function find_first_even(collection) {
     //         return collection[i];
     //     }
     // }
+
     var _ = require('../lodash/mylodash.js');
     var array = _.filter(collection,function(n) {
-        if(n % 2 === 0 ) {
-            return n;
-        }
+        return n % 2 === 0;
     })
 
     return _.reduce(array,function(a,b) {
