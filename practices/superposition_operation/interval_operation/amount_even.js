@@ -1,4 +1,5 @@
 'use strict';
+var _ = require('../../lodash/mylodash.js');
 
 function amount_even(collection) {
     // var sum = 0;
@@ -10,7 +11,6 @@ function amount_even(collection) {
     // }
     // return sum;
 
-    var _ = require('../../lodash/mylodash.js');
     var array = _.filter(collection,function(n) {
         return n % 2 === 0;
     });
