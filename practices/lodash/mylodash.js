@@ -65,4 +65,40 @@ _.is_exist = function(collection,element) {
     });
     return index;
 }
+
+_.sort_array = function(collection) {
+    var array = [];
+
+    for (var i = 0; i < collection.length; i++) {
+        array.push(collection[i]);
+    }
+
+    for(i = 0; i< array.length; i ++ ){
+        for (var j = i + 1; j < array.length; j++) {
+            var te = 0;
+
+            if (array[i] > array[j]) {
+                te = array[i];
+                array[i] = array[j];
+                array[j] = te;
+        }
+    }
+}
+    return array;
+}
+
+_.median = function(array) {
+    var result = 0;
+    var len = parseInt(array.length / 2);
+    var len_2 = parseInt(array.length / 2 - 1);
+
+    if(array.length % 2 === 0) {
+        result = (array[len] + array[len_2]) / 2 ;
+    } else {
+        result = array[len];
+    }
+    return result;
+}
+
+
 module.exports = _;
