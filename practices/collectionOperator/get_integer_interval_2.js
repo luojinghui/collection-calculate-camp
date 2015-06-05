@@ -1,4 +1,25 @@
 'use strict';
+var _ = require('../lodash/mylodash.js');
+
+function get_integer_interval_2(number_a, number_b) {
+    var array = _.range(number_a,number_b);
+    var result = _.map(array,function(n) {
+        return n % 2 === 0;
+    });
+    return result;
+}
+
+
+/*
+//在这里写入代码
+var array = [];
+
+if(number_a != number_b) {
+    num_intervel_up(array,number_a,number_b);
+}else {
+    same_num(array,number_a,number_b);
+}
+return array;
 
 function num_intervel_up(array,number_a,number_b) {
     if(number_a < number_b) {
@@ -23,19 +44,5 @@ function same_num(array,number_a,number_b) {
         array.push(number_a);
     }
 }
-
-
-function get_integer_interval_2(number_a, number_b) {
-    //在这里写入代码
-    var array = [];
-
-    if(number_a != number_b) {
-        num_intervel_up(array,number_a,number_b);
-    }else {
-        same_num(array,number_a,number_b);
-    }
-    return array;
-
-}
-
+*/
 module.exports = get_integer_interval_2;

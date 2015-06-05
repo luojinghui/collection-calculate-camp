@@ -15,7 +15,7 @@ for (var i = 0; i < collection.length; i++) {
             array_alone.push(array[ex]);
         }
     }
-console.log(array_alone);
+
     for (var j = 0; j < array.length; j++) {
         for(var a = 0; a <array_alone.length; a++) {
             if (array[j] === array_alone[a]) {

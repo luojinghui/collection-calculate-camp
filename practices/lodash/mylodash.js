@@ -7,11 +7,6 @@ _.foreach = function(collection,fun) {
    }
 }
 
-_.foreach_re = function(collection,fun) {
-    for(var j = number_a; j >= number_b; j --) {
-        fun(collection[i],i);
-    }
-}
 /*
 map方法是映射数组，不会改变数组的长度，只会改变数组中对应元素。
 */
@@ -66,39 +61,116 @@ _.is_exist = function(collection,element) {
     return index;
 }
 
-_.sort_array = function(collection) {
+
+_.sort_array = function(collection,judge) {
     var array = [];
 
-    for (var i = 0; i < collection.length; i++) {
-        array.push(collection[i]);
-    }
+    _.foreach(collection,function(n) {
+        array.push(n);
+    });
 
-    for(i = 0; i< array.length; i ++ ){
-        for (var j = i + 1; j < array.length; j++) {
-            var te = 0;
+    for (var i = 0; i < array.length; i++) {
+        var temp = 0;
 
-            if (array[i] > array[j]) {
+        for(var j = 0; j < array.length; j ++) {
+            if(judge(array[i],array[j])) {
                 te = array[i];
                 array[i] = array[j];
-                array[j] = te;
+                array[j] = temp;
+            }
         }
     }
-}
     return array;
 }
 
-_.median = function(array) {
-    var result = 0;
-    var len = parseInt(array.length / 2);
-    var len_2 = parseInt(array.length / 2 - 1);
+_.range = function(number_a,number_b) {
+    var result = [];
+    var step = Math.abs(number_b - number_a) / (number_b - number_a);
+    var count = Math.abs(number_a - number_b);
 
-    if(array.length % 2 === 0) {
-        result = (array[len] + array[len_2]) / 2 ;
+    if(number_a === number_b) {
+        result.push(number_a);
     } else {
-        result = array[len];
+        for (var i = 0; i <= count; i++) {
+            var num = number_a + i * step;
+            result.push(num);
+        }
     }
     return result;
 }
 
+_.median = function(array) {
+    var collection = _.sort_array(array);
+    var result = 0;
+    var len = parseInt(collection.length / 2);
+    var len_2 = parseInt(collection.length / 2 - 1);
 
+    if(collection.length % 2 === 0) {
+        result = (collection[len] + collection[len_2]) / 2 ;
+    } else {
+        result = collection[len];
+    }
+    return result;
+}
+
+_.intersection = function(collection_a,collection_b) {
+    var result = [];
+
+    _.foreach(collection_a,function(n) {
+        _.foreach(collection_b,function(m) {
+            if(n === m) {
+                result.push(n);
+            }
+        });
+    });
+    return result;
+}
+
+_.num_change_letter = function(num) {
+    var NUM = 26;
+    var NUM_1 = 96;
+    var letter;
+
+    if(num > NUM) {
+        var num_unit = parseInt( num / NUM);
+        var num_multiple = num_unit * NUM;
+
+        if( num % NUM === 0) {
+            letter = (String.fromCharCode((num_unit-1) + NUM_1) +
+                String.fromCharCode(NUM + NUM_1));
+            } else {
+                letter = (String.fromCharCode(num_unit + NUM_1) +
+                String.fromCharCode(num - num_multiple + NUM_1));
+        }
+    }else {
+        if(num % NUM === 0) {
+        letter = (String.fromCharCode(num + NUM_1));
+            } else {
+                var num_1 = num % NUM;
+                letter = (String.fromCharCode(num_1 + NUM_1))
+        }
+    }
+    return letter;
+}
+
+// _.sort_array = function(collection) {
+//     var array = [];
+//
+//     for (var i = 0; i < collection.length; i++) {
+//         array.push(collection[i]);
+//     }
+//
+//     for(i = 0; i< array.length; i ++ ){
+//         for (var j = i + 1; j < array.length; j++) {
+//             var te = 0;
+//
+//             if (array[i] > array[j]) {
+//                 te = array[i];
+//                 array[i] = array[j];
+//                 array[j] = te;
+//         }
+//     }
+// }
+//     return array;
+// }
 module.exports = _;

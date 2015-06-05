@@ -1,36 +1,43 @@
 'use strict';
-
+var _ = require('../lodash/mylodash.js');
 function compute_chain_median(collection) {
-    //在这里写入代码
-    var _ = require('../lodash/mylodash.js');
-    var array_2 = [];
     var array = [];
+    var array_2 = [];
 
-    array_2 = collection.split('->');
-    _.foreach(array_2,function(n) {
-        array.push(Number(n));
+    array = collection.split('->');
+    _.foreach(array,function(n) {
+        array_2.push(Number(n));
     });
+    return _.median(array_2);
+    // var array_2 = [];
+    // var array = [];
 
-    sort(array);
-    var ave = (array[array.length / 2 - 1 ] + array[array.length / 2]) / 2;
 
-    return ave;
+    //
+    // array_2 = collection.split('->');
+    // _.foreach(array_2,function(n) {
+    //     array.push(Number(n));
+    // });
+    //
+    // sort(array);
+    // var ave = (array[array.length / 2 - 1 ] + array[array.length / 2]) / 2;
+    //
 
 }
 
-function sort(array) {
-    for (var i = 0; i < array.length; i ++) {
-        var temp = 0;
-
-        for(var j = i + 1; j < array.length; j ++) {
-            if (array[i] > array[j]) {
-                temp = array[j];
-                array[j] = array[i];
-                array[i] = temp;
-            }
-        }
-    }
-}
+// function sort(array) {
+//     for (var i = 0; i < array.length; i ++) {
+//         var temp = 0;
+//
+//         for(var j = i + 1; j < array.length; j ++) {
+//             if (array[i] > array[j]) {
+//                 temp = array[j];
+//                 array[j] = array[i];
+//                 array[i] = temp;
+//             }
+//         }
+//     }
+// }
 module.exports = compute_chain_median;
 
 /*

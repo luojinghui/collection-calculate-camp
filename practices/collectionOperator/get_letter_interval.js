@@ -1,7 +1,20 @@
 'use strict';
+var _ = require('../lodash/mylodash.js');
 
 function get_letter_interval(number_a, number_b) {
-    //在这里写入代码
+    var array = [];
+    var result = [];
+
+    array = _.range(number_a,number_b);
+
+    return _.map(array,function(n) {
+        return (_.num_change_letter(n));
+    });
+}
+
+module.exports = get_letter_interval;
+
+/*
     var array = [];
 
     if(number_a <= number_b) {
@@ -14,6 +27,4 @@ function get_letter_interval(number_a, number_b) {
             }
     }
     return array;
-}
-
-module.exports = get_letter_interval;
+    */
